@@ -9,8 +9,34 @@
 
 const updateSpots = function (state, appointments, id) {
 
-  // return days array
-  return [];
+
+
+
+  const getWeekdayNum = (id) => {
+    if (id < 6) {
+      return 0;
+    } else if (id < 11) {
+      return 1;
+    } else if (id < 16) {
+      return 2;
+    } else if (id < 21) {
+      return 3;
+    } else {
+      return 4;
+    }
+  }
+
+  //book edit, book create, delete
+  let daysCopy = [...state.days]
+  if (!state.appointments[id].interview) { //create
+    
+    daysCopy[getWeekdayNum(id)].spots--;
+  } else { // edit
+    continue;
+  }
+//delete
+
+  return daysCopy;
 };
 
 module.exports = updateSpots;
